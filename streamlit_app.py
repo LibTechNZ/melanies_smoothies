@@ -19,24 +19,8 @@ session = cnx.session()
 name_on_order = st.text_input("Name on Smoothies:")
 st.write("The name on your Smoothies will be is", name_on_order)
 
-# import streamlit as st
-# commnet out below in lesson 2
-# option = st.selectbox(
-#     "How would you like to be contacted?",
-#     ("Banana", "Strawberries", "Peaches"))
-
-# st.write("Your favorite fruit is:", option)
-
-# session = get_active_session()
-# my_dataframe = session.table("smoothies.public.fruit_options")
-# st.dataframe(data=my_dataframe, use_container_width=True)
-
-
-
 
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
-
-#st.dataframe(data=my_dataframe, use_container_width=True)
 
 
 # add aa Multiselect
