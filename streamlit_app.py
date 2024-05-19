@@ -21,7 +21,9 @@ name_on_order = st.text_input("Name on Smoothies:")
 st.write("The name on your Smoothies will be is", name_on_order)
 
 
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
+# my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
+# in case user's data base fruit name does not match api one, so create new column SEARCH_ON to update value for mismatching fruits mannually
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('SEARCH_ON'))
 
 
 # add aa Multiselect
