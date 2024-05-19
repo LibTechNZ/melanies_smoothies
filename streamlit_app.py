@@ -24,9 +24,13 @@ st.write("The name on your Smoothies will be is", name_on_order)
 # my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 # in case user's data base fruit name does not match api one, so create new column SEARCH_ON to update value for mismatching fruits mannually
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'), col('SEARCH_ON'))
-st.dataframe(data=my_dataframe, use_container_width=True)
-st.stop()
+# st.dataframe(data=my_dataframe, use_container_width=True)
+# st.stop()
 
+# Convert the snowpark Dataframe to Pandas dataframe so we can use the LOC fucntion
+pd_df = my_dataframe.to_pandas()
+st.dataframe(pd_df)
+st.stop()
 
 # add aa Multiselect
 ingredients_list  = st.multiselect(
